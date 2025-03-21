@@ -1,6 +1,4 @@
-using CurrencyService.DI;
-using DatabaseLayer;
-using Microsoft.EntityFrameworkCore;
+using Services.Common;
 
 internal class Program
 {
@@ -22,7 +20,6 @@ internal class Program
             app.UseSwaggerUI();
         }
 
-        app.UseHttpsRedirection();
         app.MapControllers();
 
         app.Run();

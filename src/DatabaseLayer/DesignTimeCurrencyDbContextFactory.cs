@@ -5,7 +5,7 @@ namespace DatabaseLayer;
 
 /// <summary>
 /// Нужен, ТОЛЬКО для миграций т.е. создания фабрики контекста БД для ef migrations
-/// dotnet ef migrations add InitialCreate --msbuildprojectextensionspath "obj\DatabaseLayer"  --project "src\DatabaseLayer\DatabaseLayer.csproj" --startup-project "src\DatabaseLayer\DatabaseLayer.csproj" --output-dir "src\DatabaseLayer\Migrations" --namespace "DatabaseLayer.Migrations"
+/// dotnet ef migrations add InitialCreate  --project "src\DatabaseLayer\DatabaseLayer.csproj" --startup-project "src\DatabaseLayer\DatabaseLayer.csproj" --output-dir src\DatabaseLayer\Migrations --namespace "DatabaseLayer.Migrations"
 /// </summary>
 public class DesignTimeCurrencyDbContextFactory: IDesignTimeDbContextFactory<CurrencyDbContext>
 {

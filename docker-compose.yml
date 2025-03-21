@@ -1,0 +1,6 @@
+﻿services:
+  userservice:
+    image: userservice
+    build:
+      context: .
+      dockerfile: src/UserService/Dockerfile

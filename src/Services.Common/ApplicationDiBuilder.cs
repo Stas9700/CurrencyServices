@@ -1,9 +1,11 @@
 using DatabaseLayer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Services.Common.Implementations;
 using Services.Common.Interfaces;
 
-namespace CurrencyService.DI;
+namespace Services.Common;
 
 public static class ApplicationDiBuilder
 {
@@ -11,7 +13,8 @@ public static class ApplicationDiBuilder
     public static IServiceCollection Build(this IServiceCollection services,IConfiguration configuration)
     {
         _configuration = configuration;
-        services.AddDbContextFactory<CurrencyDbContext>(CreateDbContext)
+        services.AddSingleton(_configuration)
+                .AddDbContextFactory<CurrencyDbContext>(CreateDbContext)
                 .AddServices();
         return services;
     }
@@ -24,7 +27,11 @@ public static class ApplicationDiBuilder
     private static IServiceCollection AddServices(this IServiceCollection services)
     {
         services.AddScoped<IUserCurrenciesService, UserCurrenciesService>();
-
+        services.AddScoped<IAuthService, AuthService>();
+        
+        services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
+        services.AddSingleton<ITokenBlacklistService, TokenBlacklistService>();
+        
         return services;
     }
 }

@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		Directory.Build.props = Directory.Build.props
 		test.txt = test.txt
+		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{6102A86C-10F4-4CA6-881B-AA036188A719}"
@@ -28,6 +29,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services.Dto", "src\Services.Dto\Services.Dto.csproj", "{CF864EF9-1655-4C3A-B435-436044E62EE7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationAgent", "src\MigrationAgent\MigrationAgent.csproj", "{EEE44E4D-5BCA-43B5-AB1C-581DF53659AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService", "src\UserService\UserService.csproj", "{0A2B664F-8F22-4697-A730-CE42001E0876}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,6 +67,10 @@ Global
 		{EEE44E4D-5BCA-43B5-AB1C-581DF53659AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEE44E4D-5BCA-43B5-AB1C-581DF53659AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEE44E4D-5BCA-43B5-AB1C-581DF53659AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A2B664F-8F22-4697-A730-CE42001E0876}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A2B664F-8F22-4697-A730-CE42001E0876}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A2B664F-8F22-4697-A730-CE42001E0876}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A2B664F-8F22-4697-A730-CE42001E0876}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,5 +83,6 @@ Global
 		{4B3B36F7-14EE-419F-8028-1FDE4D7322D2} = {6102A86C-10F4-4CA6-881B-AA036188A719}
 		{CF864EF9-1655-4C3A-B435-436044E62EE7} = {6102A86C-10F4-4CA6-881B-AA036188A719}
 		{EEE44E4D-5BCA-43B5-AB1C-581DF53659AF} = {6102A86C-10F4-4CA6-881B-AA036188A719}
+		{0A2B664F-8F22-4697-A730-CE42001E0876} = {6102A86C-10F4-4CA6-881B-AA036188A719}
 	EndGlobalSection
 EndGlobal
