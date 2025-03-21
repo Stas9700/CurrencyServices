@@ -1,41 +1,35 @@
 using CurrencyService.DTO;
-using DatabaseLayer;
 using Domain.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using Services.Common.Interfaces;
 
 namespace CurrencyService.Controlers;
 
 [ApiController]
 [Route("api/currency")]
-public class UserToCurrencyController: ControllerBase
+public class UserToCurrencyController : ControllerBase
 {
-    private readonly IDbContextFactory<CurrencyDbContext> _dbContextFactory;
+    private readonly IUserCurrenciesService _userCurrenciesService;
 
-    public UserToCurrencyController(IDbContextFactory<CurrencyDbContext> dbContextFactory)
+    public UserToCurrencyController(IUserCurrenciesService userCurrenciesService)
     {
-        _dbContextFactory = dbContextFactory;
+        _userCurrenciesService = userCurrenciesService;
     }
-
+    
+    //[Authorize]
     [HttpPost("getUserCurrencies")]
     public async Task<GetUserCurrenciesResponse> GetUserCurrencies(GetUserCurrenciesRequest request)
     {
-        using (var dbContext = await _dbContextFactory.CreateDbContextAsync())
+        var currencies = await _userCurrenciesService.GetUserCurrenciesAsync(request.UserId);
+        return new GetUserCurrenciesResponse()
         {
-            var userInfo = dbContext.Users
-                .Include(i => i.UserToCurrencies)
-                .ThenInclude(t => t.Currency)
-                .FirstOrDefault(w => w.Id == request.UserId);
-
-            return new GetUserCurrenciesResponse()
+            Currencies = currencies.Select(s => new Currency()
             {
-                Currencies = userInfo?.UserToCurrencies.Select(s => new Currency()
-                {
-                    Id = s.Currency.Id,
-                    Name = s.Currency.Name,
-                    Rate = s.Currency.Rate,
-                }).ToArray()
-            };
-        }
+                Id = s.Id,
+                Name = s.Name,
+                Rate = s.Rate,
+            }).ToArray()
+        };
     }
 }

@@ -3,7 +3,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace DatabaseLayer.src.DatabaseLayer.Migrations
+namespace DatabaseLayer.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration
@@ -18,7 +18,7 @@ namespace DatabaseLayer.src.DatabaseLayer.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Name = table.Column<string>(type: "text", nullable: false),
-                    Rate = table.Column<decimal>(type: "numeric", nullable: false)
+                    Rate = table.Column<double>(type: "double precision", nullable: false)
                 },
                 constraints: table =>
                 {

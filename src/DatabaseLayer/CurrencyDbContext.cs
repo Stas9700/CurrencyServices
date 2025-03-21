@@ -15,6 +15,7 @@ public class CurrencyDbContext: DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(CurrencyDbContext).Assembly);
         //Configure primary keys
         modelBuilder.UseSerialColumns();
         modelBuilder.Entity<User>().HasKey(x => x.Id);

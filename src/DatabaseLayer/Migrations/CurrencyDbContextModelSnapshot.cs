@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace DatabaseLayer.src.DatabaseLayer.Migrations
+namespace DatabaseLayer.Migrations
 {
     [DbContext(typeof(CurrencyDbContext))]
     partial class CurrencyDbContextModelSnapshot : ModelSnapshot
@@ -33,8 +33,8 @@ namespace DatabaseLayer.src.DatabaseLayer.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<decimal>("Rate")
-                        .HasColumnType("numeric");
+                    b.Property<double>("Rate")
+                        .HasColumnType("double precision");
 
                     b.HasKey("Id");
 

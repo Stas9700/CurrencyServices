@@ -27,6 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CurrencyUpdater", "src\Curr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services.Dto", "src\Services.Dto\Services.Dto.csproj", "{CF864EF9-1655-4C3A-B435-436044E62EE7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationAgent", "src\MigrationAgent\MigrationAgent.csproj", "{EEE44E4D-5BCA-43B5-AB1C-581DF53659AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +60,10 @@ Global
 		{CF864EF9-1655-4C3A-B435-436044E62EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF864EF9-1655-4C3A-B435-436044E62EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF864EF9-1655-4C3A-B435-436044E62EE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEE44E4D-5BCA-43B5-AB1C-581DF53659AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEE44E4D-5BCA-43B5-AB1C-581DF53659AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEE44E4D-5BCA-43B5-AB1C-581DF53659AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEE44E4D-5BCA-43B5-AB1C-581DF53659AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,5 +75,6 @@ Global
 		{6B4FBA2F-9482-48A5-A6B9-2C500082B4D8} = {6102A86C-10F4-4CA6-881B-AA036188A719}
 		{4B3B36F7-14EE-419F-8028-1FDE4D7322D2} = {6102A86C-10F4-4CA6-881B-AA036188A719}
 		{CF864EF9-1655-4C3A-B435-436044E62EE7} = {6102A86C-10F4-4CA6-881B-AA036188A719}
+		{EEE44E4D-5BCA-43B5-AB1C-581DF53659AF} = {6102A86C-10F4-4CA6-881B-AA036188A719}
 	EndGlobalSection
 EndGlobal

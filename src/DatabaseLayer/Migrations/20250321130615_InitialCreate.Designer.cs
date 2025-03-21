@@ -8,10 +8,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace DatabaseLayer.src.DatabaseLayer.Migrations
+namespace DatabaseLayer.Migrations
 {
     [DbContext(typeof(CurrencyDbContext))]
-    [Migration("20250320120924_InitialCreate")]
+    [Migration("20250321130615_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -36,8 +36,8 @@ namespace DatabaseLayer.src.DatabaseLayer.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<decimal>("Rate")
-                        .HasColumnType("numeric");
+                    b.Property<double>("Rate")
+                        .HasColumnType("double precision");
 
                     b.HasKey("Id");
 

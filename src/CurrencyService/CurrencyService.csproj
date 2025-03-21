@@ -15,11 +15,8 @@
 
     <ItemGroup>
       <ProjectReference Include="..\DatabaseLayer\DatabaseLayer.csproj" />
+      <ProjectReference Include="..\Services.Common\Services.Common.csproj" />
       <ProjectReference Include="..\Services.Dto\Services.Dto.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="DTO\" />
     </ItemGroup>
 
 </Project>

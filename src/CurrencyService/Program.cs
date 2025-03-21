@@ -1,4 +1,6 @@
 using CurrencyService.DI;
+using DatabaseLayer;
+using Microsoft.EntityFrameworkCore;
 
 internal class Program
 {
