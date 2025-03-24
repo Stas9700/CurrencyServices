@@ -1,8 +1,8 @@
 using System.IdentityModel.Tokens.Jwt;
-using CurrencyService.DTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services.Common.Interfaces;
+using Services.Dto;
 
 namespace UserService;
 

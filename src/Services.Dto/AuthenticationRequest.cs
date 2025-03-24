@@ -1,4 +1,4 @@
-namespace CurrencyService.DTO;
+namespace Services.Dto;
 
 public class AuthenticationRequest
 {

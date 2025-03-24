@@ -1,6 +1,6 @@
 using Domain.Models;
 
-namespace CurrencyService.DTO;
+namespace Services.Dto;
 
 public class GetUserCurrenciesResponse
 {

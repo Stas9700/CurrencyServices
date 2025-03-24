@@ -1,8 +1,8 @@
-using CurrencyService.DTO;
 using Domain.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services.Common.Interfaces;
+using Services.Dto;
 
 namespace CurrencyService.Controlers;
 
@@ -17,7 +17,7 @@ public class UserToCurrencyController : ControllerBase
         _userCurrenciesService = userCurrenciesService;
     }
     
-    //[Authorize]
+    [Authorize]
     [HttpPost("getUserCurrencies")]
     public async Task<GetUserCurrenciesResponse> GetUserCurrencies(GetUserCurrenciesRequest request)
     {
@@ -31,5 +31,28 @@ public class UserToCurrencyController : ControllerBase
                 Rate = s.Rate,
             }).ToArray()
         };
+    }
+    
+    [Authorize]
+    [HttpGet("getCurrencies")]
+    public async Task<GetUserCurrenciesResponse> GetCurrencies()
+    {
+        var currencies = await _userCurrenciesService.GetCurrenciesAsync();
+        return new GetUserCurrenciesResponse()
+        {
+            Currencies = currencies.Select(s => new Currency()
+            {
+                Id = s.Id,
+                Name = s.Name,
+                Rate = s.Rate,
+            }).ToArray()
+        };
+    }
+    
+    [Authorize]
+    [HttpPost("setUserCurrency")]
+    public async Task SetUserCurrency(SetUserCurrencyRequest request)
+    {
+        await _userCurrenciesService.SetUserCurrencyAsync(request.UserId, request.CurrencyId);
     }
 }

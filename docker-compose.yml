@@ -4,3 +4,9 @@
     build:
       context: .
       dockerfile: src/UserService/Dockerfile
+
+  apigateway:
+    image: apigateway
+    build:
+      context: .
+      dockerfile: src/ApiGateway/Dockerfile
