@@ -25,7 +25,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Services.Common\Services.Common.csproj" />
-      <ProjectReference Include="..\src\CurrencyService\CurrencyService.csproj" />
     </ItemGroup>
 
 </Project>

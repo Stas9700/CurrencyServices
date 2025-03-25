@@ -27,8 +27,6 @@
     <ItemGroup>
       <ProjectReference Include="..\DatabaseLayer\DatabaseLayer.csproj" />
       <ProjectReference Include="..\Services.Common\Services.Common.csproj" />
-      <ProjectReference Include="..\src\DatabaseLayer\DatabaseLayer.csproj" />
-      <ProjectReference Include="..\src\Services.Common\Services.Common.csproj" />
     </ItemGroup>
 
 </Project>
