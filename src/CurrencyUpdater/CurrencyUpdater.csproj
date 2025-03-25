@@ -5,6 +5,8 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UserSecretsId>dotnet-CurrencyUpdater-3efa6169-7a3c-462b-9548-58e1352d381a</UserSecretsId>
+        <Configurations>Debug;Release;gate-user-currencygrpc</Configurations>
+        <Platforms>AnyCPU</Platforms>
     </PropertyGroup>
 
     <ItemGroup>

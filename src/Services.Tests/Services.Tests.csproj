@@ -7,6 +7,8 @@
 
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
+        <Configurations>Debug;Release;gate-user-currencygrpc</Configurations>
+        <Platforms>AnyCPU</Platforms>
     </PropertyGroup>
 
     <ItemGroup>
@@ -23,6 +25,8 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\DatabaseLayer\DatabaseLayer.csproj" />
+      <ProjectReference Include="..\Services.Common\Services.Common.csproj" />
       <ProjectReference Include="..\src\DatabaseLayer\DatabaseLayer.csproj" />
       <ProjectReference Include="..\src\Services.Common\Services.Common.csproj" />
     </ItemGroup>

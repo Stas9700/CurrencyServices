@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Configurations>Debug;Release;gate-user-currencygrpc</Configurations>
+        <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Protobuf Include="Protos\user_currencies.proto">
+          <GrpcServices>Both</GrpcServices>
+          <Access>Public</Access>
+          <ProtoCompile>True</ProtoCompile>
+          <CompileOutputs>True</CompileOutputs>
+          <OutputDir>C:\Users\Stas-NT\Documents\Self_Projects\CurrencyProject\obj\CurrencyService\Debug\net8.0\</OutputDir>
+          <Generator>MSBuild:Compile</Generator>
+        </Protobuf>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Grpc.AspNetCore" Version="2.70.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Services.Common\Services.Common.csproj" />
+      <ProjectReference Include="..\src\CurrencyService\CurrencyService.csproj" />
+    </ItemGroup>
+
+</Project>

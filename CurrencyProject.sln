@@ -37,12 +37,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GatewayTest", "src\GatewayT
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1E214C23-2864-4A89-8426-A243087CDD15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Tests", "Services.Tests\Services.Tests.csproj", "{6DC72157-C092-4798-AA20-F483C9AA37A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Tests", "src\Services.Tests\Services.Tests.csproj", "{6DC72157-C092-4798-AA20-F483C9AA37A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyGrpsService", "src\CurrencyGrpsService\CurrencyGrpsService.csproj", "{81FC6472-8EDE-40E9-8250-A090C24C1ECC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+		gate-user-currencygrpc|Any CPU = gate-user-currencygrpc|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{294CD553-970B-43D6-94A3-E2A32CC41B56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -50,46 +53,77 @@ Global
 		{294CD553-970B-43D6-94A3-E2A32CC41B56}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{294CD553-970B-43D6-94A3-E2A32CC41B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{294CD553-970B-43D6-94A3-E2A32CC41B56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{294CD553-970B-43D6-94A3-E2A32CC41B56}.gate-user-currencygrpc|Any CPU.ActiveCfg = gate-user-currencygrpc|Any CPU
+		{294CD553-970B-43D6-94A3-E2A32CC41B56}.gate-user-currencygrpc|Any CPU.Build.0 = gate-user-currencygrpc|Any CPU
 		{F1B6DC68-4749-42A3-9290-83FC05CBF5E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F1B6DC68-4749-42A3-9290-83FC05CBF5E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1B6DC68-4749-42A3-9290-83FC05CBF5E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1B6DC68-4749-42A3-9290-83FC05CBF5E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1B6DC68-4749-42A3-9290-83FC05CBF5E3}.gate-user-currencygrpc|Any CPU.ActiveCfg = gate-user-currencygrpc|Any CPU
+		{F1B6DC68-4749-42A3-9290-83FC05CBF5E3}.gate-user-currencygrpc|Any CPU.Build.0 = gate-user-currencygrpc|Any CPU
 		{2C14CAB4-8585-41A1-93A0-221E65F3F749}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2C14CAB4-8585-41A1-93A0-221E65F3F749}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C14CAB4-8585-41A1-93A0-221E65F3F749}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C14CAB4-8585-41A1-93A0-221E65F3F749}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C14CAB4-8585-41A1-93A0-221E65F3F749}.gate-user-currencygrpc|Any CPU.ActiveCfg = gate-user-currencygrpc|Any CPU
+		{2C14CAB4-8585-41A1-93A0-221E65F3F749}.gate-user-currencygrpc|Any CPU.Build.0 = gate-user-currencygrpc|Any CPU
 		{6B4FBA2F-9482-48A5-A6B9-2C500082B4D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6B4FBA2F-9482-48A5-A6B9-2C500082B4D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B4FBA2F-9482-48A5-A6B9-2C500082B4D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B4FBA2F-9482-48A5-A6B9-2C500082B4D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B4FBA2F-9482-48A5-A6B9-2C500082B4D8}.gate-user-currencygrpc|Any CPU.ActiveCfg = gate-user-currencygrpc|Any CPU
+		{6B4FBA2F-9482-48A5-A6B9-2C500082B4D8}.gate-user-currencygrpc|Any CPU.Build.0 = gate-user-currencygrpc|Any CPU
 		{4B3B36F7-14EE-419F-8028-1FDE4D7322D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4B3B36F7-14EE-419F-8028-1FDE4D7322D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B3B36F7-14EE-419F-8028-1FDE4D7322D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B3B36F7-14EE-419F-8028-1FDE4D7322D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B3B36F7-14EE-419F-8028-1FDE4D7322D2}.gate-user-currencygrpc|Any CPU.ActiveCfg = gate-user-currencygrpc|Any CPU
+		{4B3B36F7-14EE-419F-8028-1FDE4D7322D2}.gate-user-currencygrpc|Any CPU.Build.0 = gate-user-currencygrpc|Any CPU
 		{CF864EF9-1655-4C3A-B435-436044E62EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CF864EF9-1655-4C3A-B435-436044E62EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF864EF9-1655-4C3A-B435-436044E62EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF864EF9-1655-4C3A-B435-436044E62EE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF864EF9-1655-4C3A-B435-436044E62EE7}.gate-user-currencygrpc|Any CPU.ActiveCfg = gate-user-currencygrpc|Any CPU
+		{CF864EF9-1655-4C3A-B435-436044E62EE7}.gate-user-currencygrpc|Any CPU.Build.0 = gate-user-currencygrpc|Any CPU
 		{EEE44E4D-5BCA-43B5-AB1C-581DF53659AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EEE44E4D-5BCA-43B5-AB1C-581DF53659AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEE44E4D-5BCA-43B5-AB1C-581DF53659AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEE44E4D-5BCA-43B5-AB1C-581DF53659AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEE44E4D-5BCA-43B5-AB1C-581DF53659AF}.gate-user-currencygrpc|Any CPU.ActiveCfg = gate-user-currencygrpc|Any CPU
+		{EEE44E4D-5BCA-43B5-AB1C-581DF53659AF}.gate-user-currencygrpc|Any CPU.Build.0 = gate-user-currencygrpc|Any CPU
 		{0A2B664F-8F22-4697-A730-CE42001E0876}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0A2B664F-8F22-4697-A730-CE42001E0876}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A2B664F-8F22-4697-A730-CE42001E0876}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A2B664F-8F22-4697-A730-CE42001E0876}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A2B664F-8F22-4697-A730-CE42001E0876}.gate-user-currencygrpc|Any CPU.ActiveCfg = gate-user-currencygrpc|Any CPU
+		{0A2B664F-8F22-4697-A730-CE42001E0876}.gate-user-currencygrpc|Any CPU.Build.0 = gate-user-currencygrpc|Any CPU
+		{0A2B664F-8F22-4697-A730-CE42001E0876}.gate-user-currencygrpc|Any CPU.Deploy.0 = gate-user-currencygrpc|Any CPU
 		{C16A0D89-2482-4E71-AACE-0F20728B73F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C16A0D89-2482-4E71-AACE-0F20728B73F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C16A0D89-2482-4E71-AACE-0F20728B73F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C16A0D89-2482-4E71-AACE-0F20728B73F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C16A0D89-2482-4E71-AACE-0F20728B73F1}.gate-user-currencygrpc|Any CPU.ActiveCfg = gate-user-currencygrpc|Any CPU
+		{C16A0D89-2482-4E71-AACE-0F20728B73F1}.gate-user-currencygrpc|Any CPU.Build.0 = gate-user-currencygrpc|Any CPU
+		{C16A0D89-2482-4E71-AACE-0F20728B73F1}.gate-user-currencygrpc|Any CPU.Deploy.0 = gate-user-currencygrpc|Any CPU
 		{81E43072-1A82-47B6-85F6-41B46FADD3CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{81E43072-1A82-47B6-85F6-41B46FADD3CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81E43072-1A82-47B6-85F6-41B46FADD3CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81E43072-1A82-47B6-85F6-41B46FADD3CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81E43072-1A82-47B6-85F6-41B46FADD3CD}.gate-user-currencygrpc|Any CPU.ActiveCfg = gate-user-currencygrpc|Any CPU
+		{81E43072-1A82-47B6-85F6-41B46FADD3CD}.gate-user-currencygrpc|Any CPU.Build.0 = gate-user-currencygrpc|Any CPU
 		{6DC72157-C092-4798-AA20-F483C9AA37A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6DC72157-C092-4798-AA20-F483C9AA37A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DC72157-C092-4798-AA20-F483C9AA37A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DC72157-C092-4798-AA20-F483C9AA37A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DC72157-C092-4798-AA20-F483C9AA37A1}.gate-user-currencygrpc|Any CPU.ActiveCfg = gate-user-currencygrpc|Any CPU
+		{6DC72157-C092-4798-AA20-F483C9AA37A1}.gate-user-currencygrpc|Any CPU.Build.0 = gate-user-currencygrpc|Any CPU
+		{81FC6472-8EDE-40E9-8250-A090C24C1ECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81FC6472-8EDE-40E9-8250-A090C24C1ECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81FC6472-8EDE-40E9-8250-A090C24C1ECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81FC6472-8EDE-40E9-8250-A090C24C1ECC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81FC6472-8EDE-40E9-8250-A090C24C1ECC}.gate-user-currencygrpc|Any CPU.ActiveCfg = gate-user-currencygrpc|Any CPU
+		{81FC6472-8EDE-40E9-8250-A090C24C1ECC}.gate-user-currencygrpc|Any CPU.Build.0 = gate-user-currencygrpc|Any CPU
+		{81FC6472-8EDE-40E9-8250-A090C24C1ECC}.gate-user-currencygrpc|Any CPU.Deploy.0 = gate-user-currencygrpc|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -106,5 +140,6 @@ Global
 		{C16A0D89-2482-4E71-AACE-0F20728B73F1} = {6102A86C-10F4-4CA6-881B-AA036188A719}
 		{81E43072-1A82-47B6-85F6-41B46FADD3CD} = {6102A86C-10F4-4CA6-881B-AA036188A719}
 		{6DC72157-C092-4798-AA20-F483C9AA37A1} = {1E214C23-2864-4A89-8426-A243087CDD15}
+		{81FC6472-8EDE-40E9-8250-A090C24C1ECC} = {6102A86C-10F4-4CA6-881B-AA036188A719}
 	EndGlobalSection
 EndGlobal
