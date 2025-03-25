@@ -1,0 +1,391 @@
+{
+	"info": {
+		"_postman_id": "8832d846-822a-448e-9a80-ca9c68856b93",
+		"name": "CurrencyProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17761179"
+	},
+	"item": [
+		{
+			"name": "UserService",
+			"item": [
+				{
+					"name": "Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Проверяем, что ответ успешный\r",
+									"if (pm.response.code === 200) {\r",
+									"    // Парсим JSON-ответ\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    // Извлекаем токен\r",
+									"    const token = responseData.token;\r",
+									"    \r",
+									"    // Сохраняем токен в переменную (например, \"auth_token\")\r",
+									"    pm.variables.set(\"token\", token);\r",
+									"    \r",
+									"    // Опционально: выводим сообщение в консоль для проверки\r",
+									"    console.log(\"Токен сохранён:\", token);\r",
+									"} else {\r",
+									"    console.error(\"Ошибка при получении токена:\", pm.response.text());\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UserName\": \"test\",\r\n    \"Password\": \"testpsw\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5058/api/UserAuthentication/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5058",
+							"path": [
+								"api",
+								"UserAuthentication",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetToken",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Retrieve the saved \"token\" value from the variable\r",
+									"pm.test(\"Validate response against saved 'token' value\", function() {\r",
+									"if (pm.response.code === 200) {\r",
+									"    const responseData = pm.response.json();\r",
+									"    const token = responseData.token; // Убедись, что путь к токену правильный\r",
+									"    pm.globals.set(\"auth_token\", token); // Сохраняем в глобальные переменные\r",
+									"    console.log(\"Токен сохранён в глобальные переменные:\", token);\r",
+									"} else {\r",
+									"    console.error(\"Ошибка при получении токена:\", pm.response.text());\r",
+									"}\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UserName\": \"First\",\r\n    \"Password\": \"psw\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5058/api/UserAuthentication/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5058",
+							"path": [
+								"api",
+								"UserAuthentication",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CurrencyService",
+			"item": [
+				{
+					"name": "getUserCurrencies",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UserId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/currency/getUserCurrencies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"currency",
+								"getUserCurrencies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllCurrencies",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "SetFavoriteUserCurrency",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UserId\": 1,\r\n    \"CurrencyId\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/currency/setUserCurrency",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"currency",
+								"setUserCurrency"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Api-Gateway",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Api-Gateway-GetToken",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Retrieve the saved \"token\" value from the variable\r",
+											"pm.test(\"Validate response against saved 'token' value\", function() {\r",
+											"if (pm.response.code === 200) {\r",
+											"    const responseData = pm.response.json();\r",
+											"    const token = responseData.token; // Убедись, что путь к токену правильный\r",
+											"    pm.globals.set(\"auth_token\", token); // Сохраняем в глобальные переменные\r",
+											"    console.log(\"Токен сохранён в глобальные переменные:\", token);\r",
+											"} else {\r",
+											"    console.error(\"Ошибка при получении токена:\", pm.response.text());\r",
+											"}\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"UserName\": \"First\",\r\n    \"Password\": \"psw\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5143/api/UserAuthentication/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5143",
+									"path": [
+										"api",
+										"UserAuthentication",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ApiGateway_Logout",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "ApiGateway_RegisterUser",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"UserName\": \"test\",\r\n    \"Password\": \"testpsw\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5143/api/UserAuthentication/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5143",
+									"path": [
+										"api",
+										"UserAuthentication",
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Currency",
+					"item": [
+						{
+							"name": "Api-Gateway_GetCurrencies",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{auth_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5143/api/currency/getCurrencies",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5143",
+									"path": [
+										"api",
+										"currency",
+										"getCurrencies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ApiGateway-getUserCurrencies",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{auth_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"UserId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/currency/getUserCurrencies",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"currency",
+										"getUserCurrencies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Api-Gateway_SetFavoriteUserCurrency",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

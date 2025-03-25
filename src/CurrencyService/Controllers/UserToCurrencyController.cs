@@ -17,7 +17,6 @@ public class UserToCurrencyController : ControllerBase
         _userCurrenciesService = userCurrenciesService;
     }
     
-    [Authorize]
     [HttpPost("getUserCurrencies")]
     public async Task<GetUserCurrenciesResponse> GetUserCurrencies(GetUserCurrenciesRequest request)
     {
@@ -33,7 +32,6 @@ public class UserToCurrencyController : ControllerBase
         };
     }
     
-    [Authorize]
     [HttpGet("getCurrencies")]
     public async Task<GetUserCurrenciesResponse> GetCurrencies()
     {
@@ -49,7 +47,6 @@ public class UserToCurrencyController : ControllerBase
         };
     }
     
-    [Authorize]
     [HttpPost("setUserCurrency")]
     public async Task SetUserCurrency(SetUserCurrencyRequest request)
     {

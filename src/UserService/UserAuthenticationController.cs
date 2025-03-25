@@ -45,20 +45,4 @@ public class UserAuthenticationController: ControllerBase
         }
         return Unauthorized();
     }
-    
-    [Authorize]
-    [HttpPost("logout")]
-    public async Task<IActionResult> Logout()
-    {
-        // Извлекаем токен из заголовка Authorization
-        var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
-
-        var handler = new JwtSecurityTokenHandler();
-        var jwtToken = handler.ReadJwtToken(token);
-
-        // Добавляем токен в черный список
-        _tokenBlacklistService.AddToken(token, jwtToken.ValidTo);
-
-        return Ok();
-    }
 }
