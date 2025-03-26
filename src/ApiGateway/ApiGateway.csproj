@@ -30,9 +30,13 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\CurrencyGrpsService\CurrencyGrpsService.csproj" />
       <ProjectReference Include="..\CurrencyService\CurrencyService.csproj" />
+      <ProjectReference Include="..\GrpcLibrary\GrpcLibrary.csproj" />
       <ProjectReference Include="..\Services.Common\Services.Common.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Protobuf Include="..\GrpcLibrary\Protos\user_currencies.proto" GrpcServices="Client" />
     </ItemGroup>
 
 </Project>

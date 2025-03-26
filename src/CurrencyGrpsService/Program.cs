@@ -1,6 +1,4 @@
-//using CurrencyGrpsService.Services;
-
-using CurrencyGrpsService.Services;
+using GrpcLibrary;
 using Services.Common;
 
 var builder = WebApplication.CreateBuilder(args);

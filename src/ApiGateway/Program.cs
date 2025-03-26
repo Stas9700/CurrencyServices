@@ -4,6 +4,7 @@ using ApiGateway;
 using CurrencyService.Grpc;
 using Grpc.Core;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.IdentityModel.Tokens;
 using Services.Common;
 using Services.Common.Interfaces;
@@ -13,6 +14,20 @@ internal class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+        
+        builder.WebHost.ConfigureKestrel(options => {
+            
+            // Порт для gRPC (HTTP/2)
+            options.ListenLocalhost(5142, listenOptions => {
+                listenOptions.Protocols = HttpProtocols.Http2;
+            });
+
+            // Порт для REST (HTTP/1.1)
+            options.ListenLocalhost(5143, listenOptions => {
+                listenOptions.Protocols = HttpProtocols.Http1;
+            });
+        });
+        
         builder.Services.Build(builder.Configuration);
 
         var key = builder.Configuration.GetValue<string>("JwtKey");
@@ -50,6 +65,15 @@ internal class Program
             options.Address = new Uri("http://localhost:5002");
         });
 
+        // Добавляем поддержку gRPC
+        builder.Services.AddGrpc(options =>
+        {
+            options.EnableDetailedErrors = true;
+        });
+
+        // Настройка YARP
+        builder.Services.AddReverseProxy()
+            .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
 
         var app = builder.Build();
 
@@ -59,6 +83,9 @@ internal class Program
         app.UseAuthentication();
         app.UseAuthorization();
 
+        // Включаем маршрутизацию gRPC
+        app.MapReverseProxy().RequireAuthorization();
+        
 // Маршрутизация запросов
         app.Map("api/UserAuthentication/logout",
                 async (HttpContext context, ITokenBlacklistService tokenBlacklistService) =>
@@ -110,6 +137,8 @@ internal class Program
                 }
             })
             .RequireAuthorization();
+        
+
         
         /// Так же можно было бы обрабатывать не http запросы и перенапрявлять из в grpc сервис,
         /// а использовать пакет Yarp.ReverseProxy.
